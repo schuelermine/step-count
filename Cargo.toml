@@ -1,0 +1,10 @@
+[package]
+name = "step-count"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+description = "Count items of an iterator with any Step type."
+repository = "https://github.com/schuelermine/step-count"
+keywords = ["no-std", "iterator"]
+categories = ["no-std", "no-std::no-alloc", "rust-patterns"]
