@@ -101,7 +101,7 @@ pub fn step_count_from<T: Step>(iter: impl IntoIterator, start: T) -> T {
 /// # use step_count::step_count_checked;
 /// let arr = [(); u8::MAX as usize + 1];
 /// let count: Option<u8> = step_count_checked(arr);
-/// assert_eq!(count, None);
+/// assert!(count.is_none());
 /// ```
 ///
 /// Consumption:
@@ -110,6 +110,7 @@ pub fn step_count_from<T: Step>(iter: impl IntoIterator, start: T) -> T {
 /// # use step_count::step_count_checked;
 /// let mut range = -1..u8::MAX as isize;
 /// let count: Option<u8> = step_count_checked(&mut range);
+/// assert!(count.is_none());
 /// assert!(range.is_empty());
 /// ```
 #[inline]
@@ -144,7 +145,7 @@ pub fn step_count_checked<T: Step + Default>(iter: impl IntoIterator) -> Option<
 /// # use step_count::step_count_from_checked;
 /// let arr = [(); u8::MAX as usize - 1];
 /// let count: Option<u8> = step_count_from_checked(arr, 2);
-/// assert_eq!(count, None);
+/// assert!(count.is_none());
 /// ```
 ///
 /// Consumption:
@@ -153,6 +154,7 @@ pub fn step_count_checked<T: Step + Default>(iter: impl IntoIterator) -> Option<
 /// # use step_count::step_count_from_checked;
 /// let mut range = -2..=i8::MAX as isize;
 /// let count: Option<i8> = step_count_from_checked(&mut range, -1);
+/// assert!(count.is_none());
 /// assert!(range.is_empty());
 /// ```
 #[inline]
@@ -256,7 +258,7 @@ pub trait StepCount: Iterator {
     /// # use step_count::StepCount;
     /// let range = 0..u8::MAX as usize + 1;
     /// let count: Option<u8> = range.step_count_checked();
-    /// assert_eq!(count, None);
+    /// assert!(count.is_none());
     /// ```
     ///
     /// Consumption:
@@ -265,6 +267,7 @@ pub trait StepCount: Iterator {
     /// # use step_count::StepCount;
     /// let mut range = -1..u8::MAX as isize;
     /// let count: Option<u8> = range.by_ref().step_count_checked();
+    /// assert!(count.is_none());
     /// assert!(range.is_empty());
     /// ```
     #[inline]
@@ -298,7 +301,7 @@ pub trait StepCount: Iterator {
     /// # use step_count::StepCount;
     /// let range = 0..u8::MAX as usize - 1;
     /// let count: Option<u8> = range.step_count_from_checked(2);
-    /// assert_eq!(count, None);
+    /// assert!(count.is_none());
     /// ```
     ///
     /// Consumption:
@@ -307,6 +310,7 @@ pub trait StepCount: Iterator {
     /// # use step_count::StepCount;
     /// let mut range = -2..i8::MAX as isize;
     /// let count: Option<i8> = range.by_ref().step_count_from_checked(-1);
+    /// assert!(count.is_none());
     /// assert!(range.is_empty());
     /// ```
     #[inline]

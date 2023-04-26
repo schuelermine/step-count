@@ -8,7 +8,7 @@ To use, import individual functions (listed in the documentation)
 or `use discard_while::DiscardWhile` to get the convenience trait that allows
 calling these functions as methods.
 
-[Documentation](https://docs.rs/step-count/0.1.0/step_count/)
+[Documentation](https://docs.rs/step-count/0.1.1/step_count/)
 
 This library is free software, you can use and re-use it under the terms
 of the MIT license. A copy of the license is provided in the source
